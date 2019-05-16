@@ -7,7 +7,6 @@ import org.tickets.tinyTickets.repository.AccountRepository;
 import org.tickets.tinyTickets.service.AccountService;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AccountServiceImpl implements AccountService {
