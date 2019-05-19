@@ -6,11 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.tickets.tinyTickets.entity.Account;
-import org.tickets.tinyTickets.repository.AccountRepository;
 import org.tickets.tinyTickets.service.impl.AccountServiceImpl;
 
 import java.util.Collection;
-import java.util.Optional;
 
 @RestController
 public class AccountController {

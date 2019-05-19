@@ -22,6 +22,7 @@ public class SpecializationServiceImpl implements SpecializationService {
 
     @Override
     public void delete(long id) {
+
         specializationRepository.deleteById(id);
     }
 
@@ -46,6 +47,7 @@ public class SpecializationServiceImpl implements SpecializationService {
 
     @Override
     public List<Specialization> getAll() {
+
         return specializationRepository.findAll();
     }
 }
