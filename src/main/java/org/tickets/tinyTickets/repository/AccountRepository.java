@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.tickets.tinyTickets.entity.Account;
 
 public interface AccountRepository extends JpaRepository<Account, Long> {
-
-    @Query("select a from Account a where a.login = :name")
-    Account findByName(@Param("name") String name);
+    //Пример создания своего запроса
+    /*@Query("select a from Account a where a.login = :name")
+    Account findByName(@Param("name") String name);/*/
 }

@@ -7,6 +7,7 @@ import org.tickets.tinyTickets.repository.AccountRepository;
 import org.tickets.tinyTickets.service.AccountService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -15,9 +16,7 @@ public class AccountServiceImpl implements AccountService {
     private AccountRepository accountRepository;
 
     @Override
-    public Account addAccount(Account account) {
-        return accountRepository.saveAndFlush(account);
-    }
+    public Account addAccount(Account account) { return accountRepository.saveAndFlush(account); }
 
     @Override
     public void delete(long id) {
@@ -25,14 +24,21 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Account getByName(String name) {
-        return accountRepository.findByName(name);
+    public Account getById(Long id) {
+        Account account;
+        Optional<Account> optionalAccount = accountRepository.findById(id);
+        if(optionalAccount.isPresent()){
+            account = optionalAccount.get();
+        }
+        else{
+            account = new Account();
+        }
+
+        return account;
     }
 
     @Override
-    public Account editAccount(Account account) {
-        return accountRepository.saveAndFlush(account);
-    }
+    public Account editAccount(Account account) { return accountRepository.save(account); }
 
     @Override
     public List<Account> getAll() {
