@@ -10,7 +10,7 @@ public class Controller {
 
     @RequestMapping("/")
     public String homePage(Map<String, Object> model){
-        //model.put("some", "By Yura Yarmoshuk");
+        model.put("some", "By Yura Yarmoshuk");
         return "main";
     }
 }
