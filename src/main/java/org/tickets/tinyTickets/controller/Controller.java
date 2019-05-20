@@ -4,6 +4,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Map;
 
@@ -11,9 +12,9 @@ import java.util.Map;
 public class Controller {
 
     @RequestMapping("/")
-    public String homePage(@RequestParam(name = "text", required = false, defaultValue = "SOME TEXT") String name,
-                           Model model){
-        model.addAttribute("text", name);
-        return "index";
+    public ModelAndView homePage(@RequestParam(name = "text", required = false, defaultValue = "SOME TEXT") String name,
+                                 Map<String, Object> model){
+        model.put("text", name);
+        return new ModelAndView("index", model);
     }
 }

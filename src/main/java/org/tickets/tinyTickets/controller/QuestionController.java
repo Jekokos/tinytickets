@@ -5,10 +5,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 import org.tickets.tinyTickets.entity.Question;
 import org.tickets.tinyTickets.service.impl.QuestionServiceImpl;
 
 import java.util.Collection;
+import java.util.Map;
 
 @RestController
 public class QuestionController {
@@ -16,8 +18,10 @@ public class QuestionController {
     QuestionServiceImpl questionService;
 
     @RequestMapping(value = "/question", method = RequestMethod.GET)
-    public Collection<Question> allQuestions(){
-        return questionService.getAll();
+    public ModelAndView allQuestions(Map<String, Object> model){
+        Collection<Question> questions = questionService.getAll();
+        model.put("questions", questions);
+        return new ModelAndView("questions", model);
     }
 
     @RequestMapping(value = "question/{id}", method = RequestMethod.GET)
