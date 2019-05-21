@@ -1,0 +1,33 @@
+
+<html>
+<head>
+    <title>Administrator {{name}}</title>
+</head>
+<body>
+    <form action="/admin" method="get">
+        <table>
+            <tr>
+                <th>Quest Id</th>
+                <th>Quest text</th>
+            </tr>
+
+            {{#questions}}
+            <tr>
+                <td>{{idQuestion}}</td>
+                <td>{{text}}</td>
+            </tr>
+            {{/questions}}
+
+        </table>
+    </form>
+    <form>
+
+    </form>
+    <form>
+
+    </form>
+    <form>
+
+    </form>
+</body>
+</html>

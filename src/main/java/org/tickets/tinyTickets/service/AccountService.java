@@ -10,5 +10,6 @@ public interface AccountService {
     void delete(long id);
     Account getById(Long id);
     Account editAccount(Account account);
+    Account findByName(String name);
     List<Account> getAll();
 }

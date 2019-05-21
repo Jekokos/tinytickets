@@ -41,6 +41,19 @@ public class AccountServiceImpl implements AccountService {
     public Account editAccount(Account account) { return accountRepository.save(account); }
 
     @Override
+    public Account findByName(String name) {
+        Account account;
+        Optional<Account> optionalAccount = accountRepository.findByName(name);
+        if(optionalAccount.isPresent()){
+            account = optionalAccount.get();
+        }else{
+            account = new Account();
+        }
+
+        return account;
+    }
+
+    @Override
     public List<Account> getAll() {
         return accountRepository.findAll();
     }
